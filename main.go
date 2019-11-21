@@ -17,6 +17,9 @@ func main() {
 	s.HandleFunc("/analyze", handler.AnalyzeText).Methods(http.MethodPost)
 
 	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
 	fmt.Printf(`Server is up and running at port %s`, port)
 	log.Fatal(http.ListenAndServe(":"+port, s))
 }
