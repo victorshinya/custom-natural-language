@@ -34,18 +34,31 @@ func AnalyzeText(w http.ResponseWriter, h *http.Request) {
 	json.Unmarshal(body, &parsedBody)
 	text := parsedBody["text"]
 
+	customModel, language := loadEnvironmentVariables()
+
 	nluResult, _, err := nlu.Analyze(&naturallanguageunderstandingv1.AnalyzeOptions{
 		Text: &text,
 		Features: &naturallanguageunderstandingv1.Features{
-			Emotion:   &naturallanguageunderstandingv1.EmotionOptions{},
-			Sentiment: &naturallanguageunderstandingv1.SentimentOptions{},
+			Entities: &naturallanguageunderstandingv1.EntitiesOptions{
+				Model: &customModel,
+			},
+			Relations: &naturallanguageunderstandingv1.RelationsOptions{
+				Model: &customModel,
+			},
 		},
+		Language: &language,
 	})
 
 	if err != nil {
-		json.NewEncoder(w).Encode(map[string]string{"error": "Fail to extract the emotion from your text. Try again later."})
+		json.NewEncoder(w).Encode(map[string]string{"error": "Fail to extract the entities and relations from your text. Try again later.", "description": err.Error()})
 		return
 	}
 
 	json.NewEncoder(w).Encode(nluResult)
+}
+
+func loadEnvironmentVariables() (customModel string, language string) {
+	customModel = os.Getenv("KNOWLEDGESTUDIO_CUSTOMMODEL")
+	language = os.Getenv("NATURALLANGUAGEUNDERSTANDING_LANGUAGE")
+	return
 }
