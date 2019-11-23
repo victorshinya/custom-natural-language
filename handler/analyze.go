@@ -26,12 +26,16 @@ func AnalyzeText(w http.ResponseWriter, h *http.Request) {
 
 	body, err := ioutil.ReadAll(h.Body)
 	if err != nil {
-		json.NewEncoder(w).Encode(map[string]string{"error": "Fail to parse the body. Try again later."})
+		json.NewEncoder(w).Encode(map[string]string{"error": "Fail to retrieve the body. Try again later."})
 		return
 	}
 
 	var parsedBody map[string]string
-	json.Unmarshal(body, &parsedBody)
+	err = json.Unmarshal(body, &parsedBody)
+	if err != nil {
+		json.NewEncoder(w).Encode(map[string]string{"error": "Fail to parse the body. Try again later."})
+		return
+	}
 	text := parsedBody["text"]
 
 	customModel, language := loadEnvironmentVariables()
