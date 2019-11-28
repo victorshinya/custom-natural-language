@@ -1,0 +1,9 @@
+---
+applications:
+  - name: custom-natural-language
+    memory: 128M
+    instances: 1
+    buildpacks: 
+      - go_buildpack
+    env:
+      NODE_ENV: prod
