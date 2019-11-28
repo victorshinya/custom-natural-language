@@ -12,10 +12,14 @@
 *.out
 
 # Dependency directories (remove the comment below to include it)
-vendor/
+# vendor/
 
 # General
 .DS_Store
 
 # React dependencies
 */node_modules
+
+# Environment variables
+.env
+.env.test
