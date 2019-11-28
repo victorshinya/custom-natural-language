@@ -8,18 +8,20 @@ import (
 
 	"github.com/gorilla/mux"
 	_ "github.com/joho/godotenv/autoload"
+	"github.com/rs/cors"
 	"github.com/victorshinya/natural-language-understanding-demo/handler"
 )
 
 func main() {
 	router := mux.NewRouter()
-	s := router.PathPrefix("/api").Subrouter()
-	s.HandleFunc("/analyze", handler.AnalyzeText).Methods(http.MethodPost)
+	router.HandleFunc("/api/analyze", handler.AnalyzeText).Methods(http.MethodPost)
+	router.PathPrefix("/").Handler(http.StripPrefix("/", http.FileServer(http.Dir("static"))))
 
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
 	}
 	fmt.Printf(`Server is up and running at port %s`, port)
-	log.Fatal(http.ListenAndServe(":"+port, s))
+	handler := cors.Default().Handler(router)
+	log.Fatal(http.ListenAndServe(":"+port, handler))
 }
