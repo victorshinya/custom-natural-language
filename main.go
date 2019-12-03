@@ -9,7 +9,7 @@ import (
 	"github.com/gorilla/mux"
 	_ "github.com/joho/godotenv/autoload"
 	"github.com/rs/cors"
-	"github.com/victorshinya/natural-language-understanding-demo/handler"
+	"github.com/victorshinya/custom-natural-language/handler"
 )
 
 func main() {

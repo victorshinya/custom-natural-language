@@ -59,9 +59,6 @@ github.com/stretchr/testify v1.4.0 h1:2E4SXV/wtOkTonXsotYi4li6zVWxYlZuYNCXe9XRJy
 github.com/stretchr/testify v1.4.0/go.mod h1:j7eGeouHqKxXV5pUuKE4zz7dFj8WfuZ+81PSLYec5m4=
 github.com/tidwall/pretty v1.0.0 h1:HsD+QiTn7sK6flMKIvNmpqz1qrpP3Ps6jOKIKMooyg4=
 github.com/tidwall/pretty v1.0.0/go.mod h1:XNkn88O1ChpSDQmQeStsy+sBenx6DDtFZJxhVysOjyk=
-github.com/victorshinya/natural-language-understanding-demo v0.0.0-20191128204054-7d51f08ce0fc h1:Q60tqwkBx9140BbjxRK783P5G2LiCRAjUx+N0RGBgMs=
-github.com/victorshinya/natural-language-understanding-demo v0.0.0-20191128204054-7d51f08ce0fc/go.mod h1:UKKyx51gr1+LIEnXV5H7kmD/gKIorjh7MX0CQq5KkAc=
-github.com/watson-developer-cloud/go-sdk v1.0.0/go.mod h1:f2M0+zkTcfD8uf7iBc6VfGQfm1w74shLIAmOA7KQLfU=
 github.com/watson-developer-cloud/go-sdk v1.2.0 h1:hgpvaguFrmbHy8i0TvOfeolPvP296X979RgxvApncUs=
 github.com/watson-developer-cloud/go-sdk v1.2.0/go.mod h1:lldUqt6TFLCbXlBFDLN0SNe6PbJweaFXS5Zhr1KcJvY=
 go.mongodb.org/mongo-driver v1.0.3/go.mod h1:u7ryQJ+DOzQmeO7zB6MHyr8jkEQvC8vH7qLUO4lqsUM=
