@@ -20,3 +20,6 @@ vendor/
 
 # General
 .DS_Store
+
+# React UI
+static/

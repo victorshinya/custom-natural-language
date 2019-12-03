@@ -1,5 +1,5 @@
 {
-  "name": "natural-language-undersstanding-demo",
+  "name": "custom-natural-language-ui",
   "version": "0.1.0",
   "dependencies": {
     "@carbon/icons-react": "^10.6.1",
