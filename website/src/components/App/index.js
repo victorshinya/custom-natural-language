@@ -96,6 +96,38 @@ class App extends React.Component {
                     }
                   </StructuredListBody>
                 </StructuredListWrapper>
+                <label className="bx--label">Relations</label>
+                <StructuredListWrapper>
+                  <StructuredListHead>
+                    <StructuredListRow head>
+                      <StructuredListCell head>Sentence</StructuredListCell>
+                      <StructuredListCell head>Type</StructuredListCell>
+                      <StructuredListCell head>Score</StructuredListCell>
+                      <StructuredListCell head>Entity 1</StructuredListCell>
+                      <StructuredListCell head>Entity 2</StructuredListCell>
+                    </StructuredListRow>
+                  </StructuredListHead>
+                  <StructuredListBody>
+                    {
+                      response.relations ?
+                      response.relations.map((obj, i) => (
+                        (obj.score * 100) >= lastThreshold ? (
+                          <StructuredListRow key={i}>
+                            <StructuredListCell>{obj.sentence}</StructuredListCell>
+                            <StructuredListCell>{obj.type}</StructuredListCell>
+                            <StructuredListCell>{obj.score.toFixed(2) * 100}%</StructuredListCell>
+                            {
+                              obj.arguments.map((arg) => (
+                                <StructuredListCell>{arg.entities[0].text}</StructuredListCell>
+                              ))
+                            }
+                          </StructuredListRow>
+                        ) : null
+                      ))
+                      : null
+                    }
+                  </StructuredListBody>
+                </StructuredListWrapper>
               </div>
             </div>
           </div>
