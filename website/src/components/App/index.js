@@ -20,9 +20,7 @@ class App extends React.Component {
       text: '',
       threshold: 0.0,
       lastThreshold: 0.0,
-      response: {
-        entities: []
-      },
+      response: {},
       isLoading: false
     };
 
@@ -84,6 +82,7 @@ class App extends React.Component {
                   </StructuredListHead>
                   <StructuredListBody>
                     {
+                      response.entities ? 
                       response.entities.map((obj, i) => (
                         (obj.confidence * 100) >= lastThreshold ? (
                           <StructuredListRow key={i}>
@@ -93,6 +92,7 @@ class App extends React.Component {
                           </StructuredListRow>
                         ) : null
                       ))
+                      : null
                     }
                   </StructuredListBody>
                 </StructuredListWrapper>
