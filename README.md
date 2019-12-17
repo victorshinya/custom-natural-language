@@ -7,8 +7,42 @@
 
 * [Cloud Foundry (Go Runtime)](https://cloud.ibm.com/cloudfoundry/overview): Cloud Foundry is an open-source platform as a service (PaaS) that provides you with a choice of clouds, developer frameworks, and application services.
 * [Golang](https://golang.org): Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.
-* [Natural Language Understanding](https://cloud.ibm.com/catalog/services/natural-language-understanding): Use advanced NLP to analyze text and extract meta-data from content such as concepts, entities, keywords, categories, sentiment, emotion, relations, and semantic roles.
 * [Knowledge Studio](https://cloud.ibm.com/catalog/services/knowledge-studio): Teach Watson the language of your domain with custom machine learning models that identify entities and relationships unique to your industry in unstructured text.
+* [Natural Language Understanding](https://cloud.ibm.com/catalog/services/natural-language-understanding): Use advanced NLP to analyze text and extract meta-data from content such as concepts, entities, keywords, categories, sentiment, emotion, relations, and semantic roles.
+* [React](https://reactjs.org): A declarative, efficient, and flexible JavaScript library for building user interfaces.
+
+## Run locally
+
+### Pre-work
+
+You need to install [Node.js](https://nodejs.org), [React](https://reactjs.org) and [Golang](https://golang.org) before you run all commands below.
+
+### Install Node.js and React dependencies
+
+```sh
+cd website
+npm install
+```
+
+### Build the React app
+
+```sh
+npm run build
+```
+
+### Install Golang dependencies
+
+```sh
+cd ..
+go mod download
+go mod vendor
+```
+
+### Run Golang app
+
+```sh
+go run main.go
+```
 
 ## LICENSE
 
